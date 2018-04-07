@@ -7,8 +7,8 @@
 6 silly lifecycle Bot@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle Bot@1.0.0~start: Bot@1.0.0
 8 verbose lifecycle Bot@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle Bot@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/mikha/Документы/Bot/node_modules/.bin:/home/mikha/.local/share/umake/bin:/home/mikha/bin:/home/mikha/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle Bot@1.0.0~start: CWD: /home/mikha/Документы/Bot
+9 verbose lifecycle Bot@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/media/hdd/Documents/bot telegram/node_modules/.bin:/usr/lib/jvm/java-8-oracle/bin:/u01/app/oracle/product/11.2.0/xe/bin:/home/mikha/.local/share/umake/bin:/home/mikha/bin:/home/mikha/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+10 verbose lifecycle Bot@1.0.0~start: CWD: /media/hdd/Documents/bot telegram
 11 silly lifecycle Bot@1.0.0~start: Args: [ '-c', 'node index.js' ]
 12 silly lifecycle Bot@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle Bot@1.0.0~start: Failed to exec start script
@@ -23,8 +23,8 @@
 14 verbose stack     at maybeClose (internal/child_process.js:821:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid Bot@1.0.0
-16 verbose cwd /home/mikha/Документы/Bot
-17 error Linux 4.8.0-49-generic
+16 verbose cwd /media/hdd/Documents/bot telegram
+17 error Linux 4.13.0-37-generic
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 19 error node v4.2.6
 20 error npm  v3.5.2
