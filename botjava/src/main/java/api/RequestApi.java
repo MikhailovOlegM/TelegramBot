@@ -1,3 +1,5 @@
+package api;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +17,7 @@ public class RequestApi {
       HttpURLConnection con = (HttpURLConnection) obj.openConnection();
       con.setRequestMethod("GET");
 
-      con.setRequestProperty("User-Agent", "Mozilla/5.0");
+      con.setRequestProperty("app.User-Agent", "Mozilla/5.0");
 
       int responseCode = con.getResponseCode();
 

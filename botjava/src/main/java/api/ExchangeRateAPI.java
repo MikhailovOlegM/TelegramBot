@@ -1,3 +1,5 @@
+package api;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -20,7 +22,6 @@ public class ExchangeRateAPI {
           .append(jsonObj.get("base_ccy")).append(" | Покупка: ").append(jsonObj.get("buy"))
           .append(" | Продажа: ").append(jsonObj.get("sale")).append("$ \n");
     });
-    System.out.println(rateMsg.toString());
 
     return rateMsg.toString();
   }

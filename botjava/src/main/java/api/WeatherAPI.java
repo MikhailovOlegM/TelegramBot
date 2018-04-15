@@ -1,3 +1,5 @@
+package api;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -8,7 +10,6 @@ public class WeatherAPI {
 
     String url = "https://api.openweathermap.org/data/2.5/weather?lat=46.48&lon=30.73&APPID=ea4df32bcad15dd978c73c70b40a0935";
     String response = RequestApi.getResponse(url);
-    System.out.println("weather response: " + response);
     Gson gson = new Gson();
     JsonElement jsonElement = gson.fromJson(response, JsonObject.class);
 
