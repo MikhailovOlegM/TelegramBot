@@ -1,0 +1,37 @@
+сен 09, 2018 5:45:03 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: log
+сен 09, 2018 5:45:07 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: exc
+сен 09, 2018 5:45:07 PM org.telegram.telegrambots.logging.BotLogger severe
+SEVERE: BOTSESSION
+java.lang.NullPointerException
+	at app.Bot.checkTextMsg(Bot.java:98)
+	at app.Bot.onUpdateReceived(Bot.java:88)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.telegram.telegrambots.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:311)
+
+сен 09, 2018 5:45:12 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: as
+сен 09, 2018 5:45:14 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: exc
+сен 09, 2018 5:45:14 PM org.telegram.telegrambots.logging.BotLogger severe
+SEVERE: BOTSESSION
+java.lang.NullPointerException
+	at app.Bot.checkTextMsg(Bot.java:98)
+	at app.Bot.onUpdateReceived(Bot.java:88)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.telegram.telegrambots.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:311)
+
+сен 09, 2018 5:45:27 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: exc2
+сен 09, 2018 5:45:27 PM org.telegram.telegrambots.logging.BotLogger severe
+SEVERE: BOTSESSION
+java.lang.IllegalArgumentException
+	at app.Bot.checkTextMsg(Bot.java:100)
+	at app.Bot.onUpdateReceived(Bot.java:88)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.telegram.telegrambots.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:311)
+

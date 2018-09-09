@@ -17,12 +17,35 @@ import service.TimeScheduler;
 
 public class Bot extends TelegramLongPollingBot {
 
+  public static String urlForLog;
   private DatabaseConnector databaseConnector = new DatabaseConnector();
   private static final Logger LOG = Logger.getLogger(Bot.class.getName());
 
-  FileCheck fileCheck;
+  private static volatile Bot instance = null;
+
+
+  public static synchronized Bot getInstance() {
+    if (instance == null) {
+      synchronized (Bot.class) {
+        if (instance == null) {
+          instance = new Bot();
+        }
+      }
+    }
+    return instance;
+  }
+
+  private FileCheck fileCheck;
 
   public static void main(String[] args) {
+    if (args.length == 0) {
+      LOG.severe("Input params are empty!");
+      return;
+    }
+
+    urlForLog = args[0];
+    System.out.println("Main: " + urlForLog);
+
     System.out.println("Bot start...");
     LOG.info("Bot start...");
     try {
@@ -37,7 +60,7 @@ public class Bot extends TelegramLongPollingBot {
     TimeScheduler.initial();
 
     try {
-      telegramBotsApi.registerBot(new Bot());
+      telegramBotsApi.registerBot(Bot.getInstance());
     } catch (TelegramApiRequestException e) {
       LOG.severe(e.toString());
     }
@@ -47,7 +70,7 @@ public class Bot extends TelegramLongPollingBot {
   @Override
   public void onUpdateReceived(Update update) {
     Message msg = update.getMessage();
-    if (msg == null && !msg.hasText()) {
+    if (msg == null || !msg.hasText()) {
       return;
     }
 
@@ -72,8 +95,8 @@ public class Bot extends TelegramLongPollingBot {
     } else if (messageText.equals("log stop")) {
       this.stopCheck();
     } else if (messageText.equals("exc")) {
-        throw new NullPointerException();
-    }else if (messageText.equals("exc2")){
+      throw new NullPointerException();
+    } else if (messageText.equals("exc2")) {
       throw new IllegalArgumentException();
     }
 
@@ -105,6 +128,19 @@ public class Bot extends TelegramLongPollingBot {
   private void checkLogFiles() {
     fileCheck = new FileCheck();
     fileCheck.start();
+  }
+
+
+  public static void sendMsg(String chatId, String sendText, Bot bot) {
+    SendMessage sendMessage = new SendMessage();
+    sendMessage.enableMarkdown(true);
+    sendMessage.setChatId(chatId);
+    sendMessage.setText(sendText);
+    try {
+      bot.execute(sendMessage);
+    } catch (TelegramApiException e) {
+      LOG.severe(e.toString());
+    }
   }
 
   @Override

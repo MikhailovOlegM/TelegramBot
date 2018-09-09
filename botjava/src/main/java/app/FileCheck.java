@@ -13,19 +13,16 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class FileCheck extends Thread {
 
-  String urlPathToFile = "/media/hdd/Documents/bot notification/TelegramBot/botjava/application_log.txt.0";
-  FileTime modificationTime = null;
+  private FileTime modificationTime = null;
   private static final Logger LOG = Logger.getLogger(FileCheck.class.getName());
-  private boolean runStatus = true;
-  private Bot bot = new Bot();
+  private Bot bot = Bot.getInstance();
 
   private int lineCounter = 0;
 
   @Override
   public void run() {
-    runStatus = true;
-    while (runStatus) {
-      Path paths = Paths.get(urlPathToFile);
+    while (true) {
+      Path paths = Paths.get(Bot.urlForLog);
       try {
         FileTime tmpTime = Files.getLastModifiedTime(paths);
         if (tmpTime.equals(modificationTime)) {
@@ -48,7 +45,7 @@ public class FileCheck extends Thread {
         counter = 0;
         String result = message.toString();
         if (!result.isEmpty()) {
-          this.sendMsg("250770959", result);
+          Bot.sendMsg("250770959", result, bot);
         }
 
       } catch (IOException e) {
@@ -57,17 +54,6 @@ public class FileCheck extends Thread {
     }
   }
 
-  private void sendMsg(String chatId, String sendText) {
-    SendMessage sendMessage = new SendMessage();
-    sendMessage.enableMarkdown(true);
-    sendMessage.setChatId(chatId);
-    sendMessage.setText(sendText);
-    try {
-      bot.execute(sendMessage);
-    } catch (TelegramApiException e) {
-      LOG.severe(e.toString());
-    }
-  }
 
   private boolean isException(String line) {
     return line.toLowerCase().contains("exception") || line.contains("error") || line

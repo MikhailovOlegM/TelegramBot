@@ -11,7 +11,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class BotSender implements Runnable {
 
-  private Bot bot = new Bot();
+  private Bot bot = Bot.getInstance();
   private static final Logger LOG = Logger.getLogger(BotSender.class.getName());
 
   @Override
@@ -26,22 +26,11 @@ public class BotSender implements Runnable {
     userList.forEach(user -> {
       if (user.getStatus()) {
         LOG.info("Send message to: " + user);
-        sendMsg(user.getId(), weatherMsg);
-        sendMsg(user.getId(), rateMsh);
+        Bot.sendMsg(user.getId(), weatherMsg, bot);
+        Bot.sendMsg(user.getId(), rateMsh, bot);
       }
     });
   }
 
 
-  private void sendMsg(String chatId, String sendText) {
-    SendMessage sendMessage = new SendMessage();
-    sendMessage.enableMarkdown(true);
-    sendMessage.setChatId(chatId);
-    sendMessage.setText(sendText);
-    try {
-      bot.execute(sendMessage);
-    } catch (TelegramApiException e) {
-      LOG.severe(e.toString());
-    }
-  }
 }

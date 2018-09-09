@@ -1,4 +1,21 @@
-сен 09, 2018 1:50:02 PM app.Bot onUpdateReceived
+сен 09, 2018 2:31:05 PM app.Bot onUpdateReceived
 INFO: User: 250770959 OlegMikhailov. Message: log
-сен 09, 2018 1:50:04 PM app.FileCheck sendMsg
-SEVERE: org.telegram.telegrambots.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage{chatId='250770959', text='', parseMode='Markdown', disableWebPagePreview=null, replyToMessageId=null, replyMarkup=null}
+сен 09, 2018 2:31:07 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: exc
+сен 09, 2018 2:31:07 PM org.telegram.telegrambots.logging.BotLogger severe
+SEVERE: BOTSESSION
+java.lang.NullPointerException
+	at app.Bot.checkTextMsg(Bot.java:89)
+	at app.Bot.onUpdateReceived(Bot.java:79)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.telegram.telegrambots.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:311)
+
+сен 09, 2018 2:31:08 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: sdfa
+сен 09, 2018 2:31:09 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: sdf
+сен 09, 2018 2:31:12 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: log stop
+сен 09, 2018 2:31:14 PM app.Bot onUpdateReceived
+INFO: User: 250770959 OlegMikhailov. Message: log
